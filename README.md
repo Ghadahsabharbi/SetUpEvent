@@ -44,3 +44,6 @@ user: Authority
 As an authority I want to register so that I can use the website.
 
 As an authority I want to login so that I can view events and agree to initiate them.
+
+Website initial Structure :
+https://www.figma.com/file/Qhj5VkFwWWodu9viWaV1Ky/Untitled?node-id=0%3A1&t=qqL2anWck0sWfReR-1
