@@ -23,6 +23,8 @@ Project Blueprint
 \-The sponsor :  Registration page , login page , Home page, Sponsor an event page ,  Events page. 
 
 \-The authority : Registration page , login page , Home page, Approve event page , Events page. 
+
+
 User Stories
 
 \-user : Idea owner 
