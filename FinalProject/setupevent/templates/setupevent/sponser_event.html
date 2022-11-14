@@ -1,0 +1,14 @@
+{% extends 'setupevent/base.html' %}
+{% block content %}
+<div>
+<img src="https://cdn-icons-png.flaticon.com/128/2558/2558906.png" style="width:80px; height:80px;">
+<h1>{{ event.name }}</h1>
+<img src="https://cdn-icons-png.flaticon.com/128/3082/3082383.png" style="width:80px; height:80px;">
+<p> {{ event.place }} , {{ event.city }} </p>
+
+</div>
+<form action="" method="POST">
+    {% csrf_token %}
+    <button name="sponser">Sponser this event</button>
+</form>
+{% endblock %}

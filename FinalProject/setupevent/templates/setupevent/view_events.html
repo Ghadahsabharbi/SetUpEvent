@@ -6,7 +6,7 @@
     <div class="bg-light p-5 rounded">
       <h1>{{ e.name }}</h1>
       <p class="lead">{{ e.date }} , {{ e.place }} , {{ e.city }} , {{ e.status }}</p>
-      <a class="btn btn-lg btn-primary" href="/docs/5.2/components/navbar/" role="button">View details </a>
+      <a class="btn btn-lg btn-primary" href="{% url 'setupevent:event_details' e.id %}" role="button">View details </a>
     </div>
   </main>
   <br>

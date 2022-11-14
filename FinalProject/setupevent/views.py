@@ -32,3 +32,33 @@ def event_details(request : HttpRequest , event_id :int ):
            return render(request , "setupevent/not_found.html")
 
         return render(request, "setupevent/event_details.html", {"event" : event})
+
+
+def sponser_event(request : HttpRequest , event_id :int):
+    try:
+        event = Event.objects.get(id=event_id)
+
+        if request.method == "POST":
+            event.status='sponsered'
+            event.save()
+    except:
+
+        return render(request , "setupevent/not_found.html")
+
+    return render(request, "setupevent/sponser_event.html", {"event" : event})
+
+def approve_event(request : HttpRequest , event_id :int):
+    try:
+        event = Event.objects.get(id=event_id)
+
+        if request.method == "POST":
+            event.status='approved'
+            event.save()
+    except:
+
+        return render(request , "setupevent/not_found.html")
+
+    return render(request, "setupevent/approve_event.html", {"event" : event})
+
+
+

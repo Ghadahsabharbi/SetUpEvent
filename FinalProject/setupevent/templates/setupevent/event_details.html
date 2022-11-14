@@ -1,11 +1,16 @@
 {% extends 'setupevent/base.html' %}
 {% block content %}
-<div>
+<!--<div>
 <img src="https://cdn-icons-png.flaticon.com/128/2558/2558906.png" style="width:80px; height:80px;">
 <h1>{{ event.name }}</h1>
 <img src="https://cdn-icons-png.flaticon.com/128/3082/3082383.png" style="width:80px; height:80px;">
 <p> {{ event.place }} , {{ event.city }} </p>
 
-</div>
+</div>-->
+<ul class="list-group">
+    <li class="list-group-item"><img src="https://cdn-icons-png.flaticon.com/128/2558/2558906.png" style="width:30px; height:30px;"><span class="label label-danger">  {{ event.name }}</span></li>
+    <li class="list-group-item"><img src="https://cdn-icons-png.flaticon.com/128/3082/3082383.png" style="width:30px; height:30px;"><span class="label label-danger">  {{ event.place }} , {{ event.city }}</span></li>
+    <li class="list-group-item">November <span class="badge">3</span></li>
+  </ul>
 
 {% endblock %}
