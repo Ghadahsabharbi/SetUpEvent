@@ -20,9 +20,10 @@
           <li><a href="#" class="nav-link px-2 link-dark ">Add event</a></li>
           <li><a href="#" class="nav-link px-2 link-dark ">About</a></li>
         </ul>
-
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET" action="{% url 'setupevent:view_events' %}">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="search">
+        
         </form>
       </div>
     </div>
