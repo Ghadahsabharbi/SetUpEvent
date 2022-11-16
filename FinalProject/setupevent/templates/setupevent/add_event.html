@@ -1,24 +1,27 @@
 {% extends 'setupevent/base.html' %}
 {% block content %}
-<form action="" method="POST">
+<form action="" method="POST" >
     {% csrf_token %}
-    
-      <legend>Share your idea : </legend>
-      <div class="mb-3">
-        <label for="disabledTextInput" class="form-label">event name:</label>
+
+   
+     <legend>Share your idea : </legend>
+      <div class=" mb-3 " style="width:50%;">
+        <label for="disabledTextInput" class="form-label ">event name:</label>
         <input  name="name" type="text" id="disabledTextInput" class="form-control" placeholder="event name ">
+        <label for="disabledTextInput" class="form-label ">event date:</label>
+        <input  name="date" type="date" id="disabledTextInput" class="form-control" placeholder="event date " >
       </div>
       <div class="mb-3">
-        <label for="disabledTextInput" class="form-label">event date:</label>
-        <input  name="date" type="date" id="disabledTextInput" class="form-control" >
-      </div>
-      <div class="mb-3">
-        <label for="disabledTextInput" class="form-label">event place:</label>
+        <label for="disabledTextInput" class="form-label ">event place:</label>
         <input  name="place" type="text" id="disabledTextInput" class="form-control" placeholder="event place">
       </div>
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">event city:</label>
         <input  name="city" type="text" id="disabledTextInput" class="form-control" placeholder="event city ">
+      </div>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label"> event description:</label>
+        <textarea name="description"  id="disabledTextInput" class="form-control" placeholder="Event description"></textarea>
       </div>
      <div class="mb-3">
         <div class="form-check">
@@ -32,3 +35,4 @@
     
   </form>
   {% endblock %}
+ 

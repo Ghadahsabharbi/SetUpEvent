@@ -1,14 +1,10 @@
-{% extends 'setupevent/base.html' %}
-{% block content %}
-<div>
-<img src="https://cdn-icons-png.flaticon.com/128/2558/2558906.png" style="width:80px; height:80px;">
-<h1>{{ event.name }}</h1>
-<img src="https://cdn-icons-png.flaticon.com/128/3082/3082383.png" style="width:80px; height:80px;">
-<p> {{ event.place }} , {{ event.city }} </p>
+{% extends 'setupevent/event_details.html' %}
+{% block content1 %}
 
-</div>
 <form action="" method="POST">
     {% csrf_token %}
-    <button name="sponser">approve</button>
+
+    <button name="sponser" class="w-30 btn btn-lg " style="background-color:#40a798; color: aliceblue;"  type="submit">approve this event</button>
 </form>
+
 {% endblock %}

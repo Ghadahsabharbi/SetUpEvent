@@ -1,13 +1,24 @@
 {% extends 'setupevent/base.html' %}
+{% block image %} {% endblock %}
+{% block header1 %} {% endblock %}
+{% block header2 %} {% endblock %}
+{% block header3 %} {% endblock %}
 {% block content %}
 
-<div class="container">
-    <h1>Register New user</h1> {{ msg }}
+<div class="container" style="text-align: center ;">
+   
 
-    <form action="{% url 'accounts:register_user' %}" method="POST" class="d-flex flex-column gap-2">
+    <form action="{% url 'accounts:register_user' %}" method="POST" class="d-flex flex-column gap-2" style="margin: 0 auto; width:350px;">
        {% csrf_token %}
-        <h2>Blog</h2>
-        <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+        <h1 class="h3 mb-3 fw-normal">Register to use SetUpEvent ! </h1>
+            <div class="form-floating" >
+            <select class="form-control form-select"  name="group">
+              <option  value="idea_owner">Idea owner </option>
+              <option  value="sponsor">sponsor</option>
+              <option value="authority">authority</option>
+            </select>
+            <label for="floatingInput">Choose your role</label>
+            </div>
     
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
@@ -28,20 +39,6 @@
             <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" name="last_name">
             <label for="floatingInput">Last Name</label>
           </div>
-        
-
-
-
-          <div>
-        <label for="floatingInput">What is your role :</label>
-         <input type="radio" id="idea_owner" name="group" value="idea_owner" >
-         <label for="idea_owner">Idea owner </label><br>
-         <input type="radio" id="sponsor" name="group" value="sponsor">
-         <label for="sponsor">sponsor</label><br>
-         <input type="radio" id="authority" name="group" value="authority">
-         <label for="javascript">authority</label>
-        
-          </div>
 
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address">
@@ -54,8 +51,8 @@
           <label for="floatingPassword">Password</label>
         </div>
     
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+        <button class="w-100 btn btn-lg" style="background-color:#40a798; color: aliceblue;" type="submit">Sign in</button>
+      
       </form>
 
 

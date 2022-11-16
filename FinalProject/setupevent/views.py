@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request : HttpRequest):
-    return render(request, "setupevent/home.html")
+    return render(request, "setupevent/cover.html")
 
 
 def add_event(request : HttpRequest):

@@ -2,6 +2,7 @@
 {% block content %}
 <h1>Events</h1>
 {% for e in event %}
+<!--
 <main class="container">
     <div class="bg-light p-5 rounded">
       <h1>{{ e.name }}</h1>
@@ -9,6 +10,24 @@
       <a class="btn btn-lg btn-primary" href="{% url 'setupevent:event_details' e.id %}" role="button">View details </a>
     </div>
   </main>
-  <br>
+  <br>-->
+  
+  <div class="card" style="width: 300px; display:inline-block; margin:10px ; ">
+    <p class="card-img-top" style="background-color:rgb(245, 245, 245); text-align: center; font-size: 20px; font-family: Lucida Console;"> {{ e.name }}  </p>
+    <div class="card-body">
+      <p class="card-text"> Date : {{ e.date }} </p>
+      <p class="card-text"></p> place: {{ e.place }}</p>
+      <a href="{% url 'setupevent:event_details' e.id %}" class="card-link"><button type="button" class="btn" style="margin-left: 150px; background-color:#e7e7e7;">view details</button></a>
+    </div>
+  </div>
+  <!--
+  <div class="card" style="width: 18rem; display:inline-block; margin:10px ; ">
+    <div class="card-body">
+      <h5 class="card-title">{{ e.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Date : {{ e.date }}</h6>
+      <p class="card-text">place : {{ e.place }} , city: {{ e.city }} , status:  {{ e.status }}</p>
+      <a href="{% url 'setupevent:event_details' e.id %}" class="card-link" style="margin-left: 190px; ">Details</a>
+    </div>
+  </div>-->
   {% endfor %}
 {% endblock %}
