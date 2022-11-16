@@ -1,5 +1,4 @@
 {% extends 'setupevent/base.html' %}
-{% block header %}  <li><a href="{% url 'setupevent:add_event' %}" class="nav-link px-2 link-secondary ">Add event</a></li>{% endblock %}
 {% block content %}
 <h1>Events</h1>
 {% for e in event %}
@@ -9,7 +8,7 @@
     <div class="card-body">
       <p class="card-text"> Date : {{ e.date }} </p>
       <p class="card-text"></p> place: {{ e.place }}</p>
-      <a href="{% url 'setupevent:event_details' e.id %}" class="card-link"><button type="button" class="btn" style="margin-left: 150px; background-color:#e7e7e7;">view details</button></a>
+      <a href="{% url 'setupevent:sponser_event' e.id %}" class="card-link"><button type="button" class="btn" style="margin-left: 150px; background-color:#e7e7e7;">view details</button></a>
     </div>
   </div>
 

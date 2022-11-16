@@ -8,6 +8,7 @@
 {% block content %}
 <div class="container" style="text-align:center;">
     <h1>Login</h1>
+    <h2 style="color:red;">{{ msg }}</h2>
 
     <form action="{% url 'accounts:login_user' %}" method="POST" class="d-flex flex-column gap-2" style="margin: 0 auto; width:450px;">
        {% csrf_token %}

@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.contrib.auth.models import User , Group
@@ -36,10 +35,19 @@ def login_user(request : HttpRequest):
     msg = ""
     if request.method == "POST":
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
-        
-        if user:
+    
+        if user.groups.filter(name='sponsor').exists():
+            login(request, user)
+            return redirect("setupevent:view_events1")
+
+        elif user.groups.filter(name='authority').exists():
+            login(request, user)
+            return redirect("setupevent:view_events2")
+
+        elif user.groups.filter(name='idea_owner').exists():
             login(request, user)
             return redirect("setupevent:view_events")
+            
         else:
             msg = "User Not Found , check your credentials"
 

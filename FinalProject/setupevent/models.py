@@ -11,3 +11,4 @@ class Event(models.Model):
     place=models.CharField(max_length=300)
     city=models.CharField(max_length=300)
     status=models.CharField(max_length=300)
+    description= models.TextField()
