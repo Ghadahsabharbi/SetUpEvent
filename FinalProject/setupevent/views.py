@@ -22,16 +22,18 @@ def add_event(request : HttpRequest):
     if not (user.is_authenticated and user.has_perm("setupevent.add_event")):
         return redirect("accounts:login_user")
 
-    val = val1 = val2='non'
+    val = ''
+    val1=''
+    val2=''
     
-    if request.user.groups.filter(name='idea_owner').exists():
-        val=request.user.get_username()
+    if user.groups.filter(name='idea_owner').exists():
+        val=user.get_username()
 
-    elif request.user.groups.filter(name='sponsor').exists():
-        val1=request.user.get_username()
+    elif user.groups.filter(name='sponsor').exists():
+        val1=user.get_username()
 
-    elif request.user.groups.filter(name='autherity').exists():
-        val2=request.user.get_username()
+    elif user.groups.filter(name='authority').exists():
+        val2=user.get_username()
       
     if request.method == "POST":
         new_event = Event(idea_owner=val, sponser=val1, autherity =val2, name=request.POST["name"], date = request.POST["date"], place=request.POST["place"] , city=request.POST["city"], status='non' ,description=request.POST["description"] )
@@ -100,12 +102,14 @@ def event_details(request : HttpRequest , event_id :int ):
 
 
 def sponser_event(request : HttpRequest , event_id :int):
+    user : User = request.user
     msg=""
     try:
         event = Event.objects.get(id=event_id)
 
         if request.method == "POST":
             event.status='sponsered'
+            event.sponser=user.get_username()
             event.save()
             msg="The event is sponsored successfully "
     except:
@@ -116,12 +120,14 @@ def sponser_event(request : HttpRequest , event_id :int):
 
 
 def approve_event(request : HttpRequest , event_id :int):
+    user : User = request.user
     msg=""
     try:
         event = Event.objects.get(id=event_id)
 
         if request.method == "POST":
             event.status='approved'
+            event.autherity=user.get_username()
             event.save()
             msg="The event is approved successfully "
     except:

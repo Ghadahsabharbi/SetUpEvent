@@ -14,16 +14,15 @@ Project Blueprint
 *   All the above users can view their home page.
 *   All the above users can view the events page (liste\_event).
 
-\-Pages : Registration page , login page , Home page (each user has a specified home page)  , Add event page , Sponsor an event page , Approve event page , Events page. 
+\-Pages : Registration page , login page , Home page (each user has a specified home page)  , Add event page , Sponsor an event page , Approve event page , Events page, about us page, contact us page , cover page , not found page.
 
 \-Groups and pages:
 
-\-The idea owner :  Registration page , login page , Home page, Add event page,  Events page. 
+\-The idea owner :  Registration page , login page , Home page, Add event page,  Events page ,about us page, contact us page.
 
-\-The sponsor :  Registration page , login page , Home page, Sponsor an event page ,  Events page. 
+\-The sponsor :  Registration page , login page , Home page, Sponsor an event page ,  Events page ,about us page, contact us page.
 
-\-The authority : Registration page , login page , Home page, Approve event page , Events page. 
-
+\-The authority : Registration page , login page , Home page, Approve event page , Events page ,about us page, contact us page.
 
 User Stories
 
