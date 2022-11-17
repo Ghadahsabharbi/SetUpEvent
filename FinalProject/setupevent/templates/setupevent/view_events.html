@@ -1,6 +1,7 @@
 {% extends 'setupevent/base.html' %}
 {% block header %}  <li><a href="{% url 'setupevent:add_event' %}" class="nav-link px-2 link-secondary ">Add event</a></li>{% endblock %}
 {% block content %}
+<h2 style="color:#40a798;">Welcome {{ username }}</h2>
 <h1>Events</h1>
 {% for e in event %}
   

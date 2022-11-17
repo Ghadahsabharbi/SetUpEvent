@@ -34,7 +34,7 @@ def add_event(request : HttpRequest):
         val2=request.user.get_username()
       
     if request.method == "POST":
-        new_event = Event(idea_owner=val, sponser=val1, autherity =val2, name=request.POST["name"], date = request.POST["date"], place=request.POST["place"] , city=request.POST["city"], status='ignore' ,description=request.POST["description"] )
+        new_event = Event(idea_owner=val, sponser=val1, autherity =val2, name=request.POST["name"], date = request.POST["date"], place=request.POST["place"] , city=request.POST["city"], status='non' ,description=request.POST["description"] )
         new_event.save()
     return render(request, "setupevent/add_event.html" , {"event" : Event})
 
@@ -42,6 +42,7 @@ def add_event(request : HttpRequest):
 
 @login_required(login_url="/account/login/")
 def view_events(request : HttpRequest ):
+    username=request.user.get_username
 
     try:
         if "search" in request.GET:
@@ -53,11 +54,12 @@ def view_events(request : HttpRequest ):
            return render(request , "setupevent/not_found.html")
 
     
-    return render(request, "setupevent/view_events.html", {"event" : event})
+    return render(request, "setupevent/view_events.html", {"event" : event , "username": username})
 
 
 #events for authority
 def view_events2(request : HttpRequest):
+    username=request.user.get_username
     try:
         if "search" in request.GET:
             event = Event.objects.filter(name__contains=request.GET["search"])
@@ -68,10 +70,11 @@ def view_events2(request : HttpRequest):
            return render(request , "setupevent/not_found.html")
 
     
-    return render(request, "setupevent/view_events2.html", {"event" : event})
+    return render(request, "setupevent/view_events2.html", {"event" : event  , "username": username})
 
 #events for sponsor
 def view_events1(request : HttpRequest):
+    username=request.user.get_username
     try:
         if "search" in request.GET:
             event = Event.objects.filter(name__contains=request.GET["search"])
@@ -82,7 +85,7 @@ def view_events1(request : HttpRequest):
            return render(request , "setupevent/not_found.html")
 
     
-    return render(request, "setupevent/view_events1.html", {"event" : event})
+    return render(request, "setupevent/view_events1.html", {"event" : event , "username": username})
 
 
 def event_details(request : HttpRequest , event_id :int ):
