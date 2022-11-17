@@ -5,17 +5,20 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+# this method shows the cover page 
 def home(request : HttpRequest):
     return render(request, "setupevent/cover.html")
 
-
+#this method shows the about page 
 def about(request : HttpRequest):
     return render(request, "setupevent/about.html")
 
+#this method shows the contact us page 
 def contactus(request : HttpRequest):
     return render(request, "setupevent/contactus.html")
 
-
+#this method enables the idea owner to add an event 
 def add_event(request : HttpRequest):
     user : User = request.user
 
@@ -41,6 +44,7 @@ def add_event(request : HttpRequest):
     return render(request, "setupevent/add_event.html" , {"event" : Event})
 
 
+#events page(home page) for ide owmner
 
 @login_required(login_url="/account/login/")
 def view_events(request : HttpRequest ):
@@ -59,7 +63,8 @@ def view_events(request : HttpRequest ):
     return render(request, "setupevent/view_events.html", {"event" : event , "username": username})
 
 
-#events for authority
+#events page(home page) for authority
+
 def view_events2(request : HttpRequest):
     username=request.user.get_username
     try:
@@ -74,7 +79,7 @@ def view_events2(request : HttpRequest):
     
     return render(request, "setupevent/view_events2.html", {"event" : event  , "username": username})
 
-#events for sponsor
+#events page(home page) for sponsor
 def view_events1(request : HttpRequest):
     username=request.user.get_username
     try:
@@ -89,7 +94,7 @@ def view_events1(request : HttpRequest):
     
     return render(request, "setupevent/view_events1.html", {"event" : event , "username": username})
 
-
+# the event detilas page
 def event_details(request : HttpRequest , event_id :int ):
         
     try:
@@ -100,7 +105,7 @@ def event_details(request : HttpRequest , event_id :int ):
     except:
            return render(request , "setupevent/not_found.html")
 
-
+# the sponsor event page 
 def sponser_event(request : HttpRequest , event_id :int):
     user : User = request.user
     msg=""
@@ -118,7 +123,7 @@ def sponser_event(request : HttpRequest , event_id :int):
 
     return render(request, "setupevent/sponser_event.html", {"event" : event , "msg": msg})
 
-
+# the approve event page
 def approve_event(request : HttpRequest , event_id :int):
     user : User = request.user
     msg=""

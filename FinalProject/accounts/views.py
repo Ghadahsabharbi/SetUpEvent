@@ -5,7 +5,7 @@ from django.contrib.auth.models import User , Group
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
-
+#registration user method
 def register_user(request : HttpRequest):
     
     if request.method == "POST":
@@ -31,28 +31,31 @@ def register_user(request : HttpRequest):
 
     return render(request, "accounts/register.html")
 
+#login user method
 def login_user(request : HttpRequest):
     msg = ""
     if request.method == "POST":
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
-    
-        if user.groups.filter(name='sponsor').exists():
-            login(request, user)
-            return redirect("setupevent:view_events1")
+        if user:
+             if user.groups.filter(name='sponsor').exists():
+                 login(request, user)
+                 return redirect("setupevent:view_events1")
 
-        elif user.groups.filter(name='authority').exists():
-            login(request, user)
-            return redirect("setupevent:view_events2")
+             elif user.groups.filter(name='authority').exists():
+               login(request, user)
+               return redirect("setupevent:view_events2")
 
-        elif user.groups.filter(name='idea_owner').exists():
-            login(request, user)
-            return redirect("setupevent:view_events")
+             elif user.groups.filter(name='idea_owner').exists():
+                 login(request, user)
+                 return redirect("setupevent:view_events")
             
         else:
             msg = "User Not Found , check your credentials"
 
     return render(request, "accounts/login.html", {"msg" : msg})
 
+
+#logout user method
 
 def logout_user(request: HttpRequest):
 

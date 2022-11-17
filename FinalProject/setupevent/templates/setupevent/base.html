@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<!--this is the base page -->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +17,7 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          {% block header %}{% endblock %}
+          {% block header %}{% endblock %} <!--this header block is used to enable only the idea owner to see and accsess the add event page-->
            <li><a href="{% url 'setupevent:view_events' %}" class="nav-link px-2 link-secondary ">Home</a></li>
          <li><a href="{% url 'setupevent:about' %}" class="nav-link px-2 link-dark ">About</a></li> 
          <li><a href="{% url 'setupevent:contactus' %}" class="nav-link px-2 link-dark ">Contact us </a></li>
